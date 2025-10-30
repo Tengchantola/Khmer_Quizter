@@ -26,6 +26,7 @@
 
 .logo img {
   width: 55px;
+  border-radius: 10px;
 }
 
 nav {

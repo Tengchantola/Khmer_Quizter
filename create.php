@@ -81,7 +81,7 @@ $currentPage = 'home.php';
         
     </div>
 </form>
-<form class="mrquestion">
+<form class="mrquestion mb-10">
     <div class="container main mt-5">
         <div class="row py-3">
             <div class="col-12">

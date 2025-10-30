@@ -29,7 +29,10 @@ include_once 'nav.php';
 
 <!-- Hero Welcome Section -->
 <div class="container">
-    <div class="hero-welcome">
+    <div class="hero-welcome" style="background-image: url('<?php echo !empty($_SESSION['Profile']) ? $_SESSION['Profile'] : 'https://media.valorant-api.com/agents/707eab51-4836-f488-046a-cda6bf494859/displayicon.png'; ?>'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;">
         <div class="hero-content">
             <div class="welcome-text">
                 <h1>Hello, <span class="username"><?php echo $_SESSION['Username']; ?>!</span></h1>
@@ -275,3 +278,5 @@ include_once 'nav.php';
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="javascripts/home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+

@@ -19,7 +19,7 @@ include_once 'nav.php';
             <button class="back"><i class="bi bi-backspace-fill"></i> Back</button>
         </div>
         <div class="col-xxl-8 col-12 text-center imageicon josefin-sans">
-            <img src="<?php echo $_SESSION['Profile'] ?>">
+            <img src="<?php echo $_SESSION['Profile'] ?>" class="img-fluid" style="width: 170px; height: 170px; object-fit: cover; border-radius: 50%; border: 4px solid #ff0000ff;">
             <h1 class="mt-2">Your current Avatar</h1>
             <h2>Choose your new Avatar</h2>
         </div>
@@ -27,36 +27,39 @@ include_once 'nav.php';
     <div class="row">
         <?php
         $icon = array(
-            "Sage" => "https://media.valorant-api.com/agents/569fdd95-4d10-43ab-ca70-79becc718b46/displayicon.png",
-            "Neon" => "https://cdn3.emoji.gg/emojis/3666-valorant-neon-icon.png",
-            "Killjoy" => "https://media.valorant-api.com/agents/1e58de9c-4950-5125-93e9-a0aee9f98746/displayicon.png",
-            "Jett" => "https://media.valorant-api.com/agents/add6443a-41bd-e414-f6ad-e58d267f4e95/displayicon.png",
-            "Breach" => "https://val.owen.biz/Resources/Thumbnails/breach.png",
-            "Viper" => "https://media.valorant-api.com/agents/707eab51-4836-f488-046a-cda6bf494859/displayicon.png",
-            "Yoru" => "https://media.valorant-api.com/agents/7f94d92c-4234-0a36-9646-3a87eb8b5c89/displayicon.png",
-            "Iso" => "https://cdn3.emoji.gg/emojis/3655-valorant-iso-icon.png",
-            "Gekko" => "https://titles.trackercdn.com/valorant-api/agents/e370fa57-4757-3604-3648-499e1f642d3f/displayicon.png",
-            "Chamber" => "https://media.valorant-api.com/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/displayicon.png",
-            "Fade" => "https://tiermaker.com/images/templates/valorant-agents-fade-15154563/151545631655300856.png",
-            "KAY/O" => "https://th.bing.com/th/id/R.b24c32486955c51626f797c747d28e47?rik=f7K%2be%2bmIguF9wg&pid=ImgRaw&r=0",
-            "Phoenix"  => "https://media.valorant-api.com/agents/eb93336a-449b-9c1b-0a54-a891f7921d69/displayicon.png",
-            "Clove" => "https://www.vlr.gg/img/vlr/game/agents/clove.png",
-            "Harbor" => "https://s3-us-east-2.amazonaws.com/strats-gg/images/c50f2e4a-d47a-4d5e-aea1-7b4b1ea5067a.png",
-            "Raze" => "https://www.vlr.gg/img/vlr/game/agents/raze.png",
-            "Astra" => "https://media.valorant-api.com/agents/41fb69c1-4189-7b37-f117-bcaf1e96f1bf/displayicon.png",
-            "Syke" => "https://media.valorant-api.com/agents/6f2a04ca-43e0-be17-7f36-b3908627744d/displayicon.png",
-            "Deadlock" => "https://media.valorant-api.com/agents/cc8b64c8-4b25-4ff9-6e7f-37b4da43d235/displayicon.png",
-            "Brimstone" => "https://media.valorant-api.com/agents/9f0d8ba9-4140-b941-57d3-a7ad57c6b417/displayicon.png",
-            "Cypher" => "https://media.valorant-api.com/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/displayicon.png",
-            "Omen" => "https://media.valorant-api.com/agents/8e253930-4c05-31dd-1b6c-968525494517/displayicon.png",
-            "Skye" => "https://media.valorant-api.com/agents/6f2a04ca-43e0-be17-7f36-b3908627744d/displayicon.png",
-            "Reyna" => "https://media.valorant-api.com/agents/a3bfb853-43b2-7238-a4f1-ad90e9e46bcc/displayicon.png"
+            "Naruto" => "https://i.postimg.cc/B6CCGGN9/9adf46e3c4aba54e5381d5f6f10b69c5.jpg",
+            "Goku" => "https://i.postimg.cc/8c0M1k6b/4cec13a6450152d07c148abb7c5dc79c.jpg",
+            "Luffy" => "https://i.postimg.cc/8zn3qLcL/3e7b76dbafbc491605e5b1fccd3ed7b3.jpg",
+            "Saitama" => "https://i.postimg.cc/vZWgKt3k/Saitama.jpg",
+            "Levi" => "https://i.postimg.cc/RVtN3T5J/Levi.jpg",
+            "Eren Yeager" => "https://i.postimg.cc/Mp8mPDy8/Eren-Yeager.jpg",
+            "Light Yagami" => "https://i.postimg.cc/rp1bZs08/Light-Yagami.jpg",
+            "Pain" => "https://i.postimg.cc/TPDkFSZX/b965790f246ad40f21d3a275bb4cad35.jpg",
+            "Spike Spiegel" => "https://i.postimg.cc/MpKvpfwR/Spike-Spiegel.jpg",
+            "Edward Elric" => "https://i.postimg.cc/nhPcVd0x/Edward-Elric.jpg",
+            "Killua" => "https://i.postimg.cc/kX5mVQVB/Killua.jpg",
+            "Gon" => "https://i.postimg.cc/HnRBk1cz/Gon.jpg",
+            "Vegeta" => "https://i.postimg.cc/vBmz7Z5f/Vegeta.jpg",
+            "Sasuke" => "https://i.postimg.cc/R0S889c0/Sasuke.jpg",
+            "Kakashi" => "https://i.postimg.cc/bw8FD8VT/Kakashi.jpg",
+            "Itachi" => "https://i.postimg.cc/vH70dk8t/Itachi.jpg",
+            "Zoro" => "https://i.postimg.cc/7ZsMHyFL/Zoro.jpg",
+            "Sanji" => "https://i.postimg.cc/bvSbqSHj/Sanji.jpg",
+            "Ichigo" => "https://i.postimg.cc/NM7K06yw/Ichigo.jpg",
+            "Rukia" => "https://i.postimg.cc/prSRVrJf/Rukia.jpg",
+            "Lelouch" => "https://i.postimg.cc/2SGm30Gh/Lelouch.jpg",
+            "L" => "https://i.postimg.cc/W4xy4ZBS/L.jpg",
+            "Mikasa" => "https://i.postimg.cc/bNLFt4Xw/Mikasa.jpg",
+            "Armin" => "https://i.postimg.cc/90b1ywnd/Armin.jpg",
+            "Tanjiro" => "https://i.postimg.cc/Xv58QzP9/Tanjiro.jpg",
+            "Nezuko" => "https://i.postimg.cc/2Ssdbx5f/Nezuko.jpg",
+            "Zenitsu" => "https://i.postimg.cc/m2qCJSCC/Zenitsu.jpg"
         );
         foreach ($icon as $key => $value) {
             echo "<div class='col-xxl-2 col-lg-3 col-md-4 col-6 imageicon text-center mt-3'> 
                     <form action='changepf.php' method='post'>
                         <input type='hidden' name='agent_name' value='" . $value . "'>
-                        <img src='" . $value . "'><br>
+                        <img src='" . $value . "' class='img-fluid' style='width: 140px; height: 140px; object-fit: cover;'><br>
                         <input type='submit' value='" . $key . "' class='selectagent mt-3 josefin-sans'>
                     </form>
                 </div>";

@@ -60,8 +60,13 @@ if (isset($_GET['quizid'])) {
 
                 </div>
                 <div class="col-xxl-2 col-12 plays">
-                    <h1><?php echo $play  ?> plays</h1>
+                    <h1>
+                        <?php 
+                            echo $play . ' ' . ($play == 1 ? 'Play' : 'Plays'); 
+                        ?>
+                    </h1>
                 </div>
+
                 <div class="col-2">
 
                 </div>
@@ -88,8 +93,13 @@ if (isset($_GET['quizid'])) {
 
                 </div>
                 <div class="col-xxl-2 col-12 ques">
-                    <h1><?php echo $numRows ?> Ques</h1>
+                    <h1>
+                        <?php 
+                            echo $numRows . ' ' . ($numRows == 1 ? 'Question' : 'Questions'); 
+                        ?>
+                    </h1>
                 </div>
+
                 <div class="col-3">
 
                 </div>
@@ -134,6 +144,7 @@ if (isset($_GET['quizid'])) {
         </div>
     </div>
 </div>
+
 <div class="congrats container josefin-sans mt-4">
     <div class="row">
         <div class="col-12 button"><button type='button'><i class="bi bi-backspace-fill"></i> Leave</button></div>
@@ -154,6 +165,7 @@ if (isset($_GET['quizid'])) {
         </div>
     </div>
 </div>
+
 <script>
     var quizid = '<?php echo $quizid; ?>';
     var userID = '<?php echo isset($_SESSION['UserID']) ? $_SESSION['UserID'] : ''; ?>';
