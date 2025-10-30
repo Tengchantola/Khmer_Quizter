@@ -305,11 +305,11 @@ body {
   }
 
   .back-to-top {
-    right: 20px;
-    top: -20px;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    right: 12px;
+    bottom: 12px;
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
   }
 
   .footer-legal {

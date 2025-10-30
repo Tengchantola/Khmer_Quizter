@@ -57,7 +57,7 @@ if (isset($_SESSION['Username'])) {
                 <div class="col-xxl-4 text-center"><button class="about">About Us</button></div>
             </div>
         </div>
-        <div class="logo mt-5">
+        <div class="logo mt-5 rounded">
             <img src="./assets/Khmer_Quizter.png" alt="Khmer Quizter Logo">
         </div>
         <div class="row">

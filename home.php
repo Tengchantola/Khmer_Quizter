@@ -127,7 +127,6 @@ include_once 'nav.php';
         GROUP BY Quiz.QuizID
         HAVING question_count > 0 and Quiz.Play > 0
         ORDER BY Quiz.Play DESC;";
-
         $result = mysqli_query($conn, $displayQuery);
         if ($result) {
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -147,7 +146,6 @@ include_once 'nav.php';
                         $image = htmlspecialchars($row['Image']);
                         $QuizCode = htmlspecialchars($row['QuizCode']);
                         $play = $row['Play'];
-                        
                         $getquestionamount = "SELECT COUNT(*) as question_count FROM QuizQuestion WHERE QuizID = '$QuizID'";
                         $resultt = mysqli_query($conn, $getquestionamount);
                         $numRows = 0;
@@ -156,7 +154,7 @@ include_once 'nav.php';
                             $numRows = $rowt['question_count'];
                         }
                         
-                        echo "<div class='col-lg-3 col-md-6 col-12'>
+                        echo "<div class='col-lg-3 col-md-6 col-12 mt-4 mt-md-0'>
                             <div class='quiz-card' data-quizcode='$QuizCode' data-quizid='$QuizID' data-questions='$numRows' data-plays='$play' data-title='$Quiztitle' data-author='$Author' data-image='$image'>
                                 <div class='quiz-card-image'>
                                     <img src='$image' alt='$Quiztitle'>
@@ -219,7 +217,6 @@ include_once 'nav.php';
                             $image = htmlspecialchars($row['Image']);
                             $QuizCode = htmlspecialchars($row['QuizCode']);
                             $play = $row['Play'];
-                            
                             $getquestionamount = "SELECT COUNT(*) as question_count FROM QuizQuestion WHERE QuizID = '$QuizID'";
                             $resultt = mysqli_query($conn, $getquestionamount);
                             $numRows = 0;
@@ -228,7 +225,7 @@ include_once 'nav.php';
                                 $numRows = $rowt['question_count'];
                             }
                             
-                            echo "<div class='col-lg-3 col-md-6 col-12'>
+                            echo "<div class='col-lg-3 col-md-6 col-12 mt-4 mt-md-0'>
                                 <div class='quiz-card' data-quizcode='$QuizCode' data-quizid='$QuizID' data-questions='$numRows' data-plays='$play' data-title='$Quiztitle' data-author='$Author' data-image='$image'>
                                     <div class='quiz-card-image'>
                                         <img src='$image' alt='$Quiztitle'>

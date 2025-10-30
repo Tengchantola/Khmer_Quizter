@@ -83,7 +83,7 @@
             </div>
         </div>
     </nav>
-    <div class="pagetitle josefin-sans">
+    <!-- <div class="pagetitle josefin-sans">
         <h1><?php if ($currentPage === 'home.php') {
                 echo 'Home';
             } elseif ($currentPage === 'activity.php') {
@@ -94,7 +94,7 @@
                 echo 'Find Quiz';
             };
             ?></h1>
-    </div>
+    </div> -->
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="javascripts/nav.js"></script>

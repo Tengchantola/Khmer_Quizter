@@ -83,7 +83,7 @@ if ($result) {
             </div>
             <div class="container mt-4">
                 <div class="row">
-                    <div class="col-12 text-end">
+                    <div class="col-12 text-end mb-5">
                         <input type="text" style="display: none;" value="<?php echo $quizid ?>" id="getquiz">
                         <button class="leave josefin-sans finish" id="finish" type="button">Finish <i class="bi bi-check-all"></i></button>
                         <button class="leave createquestion josefin-sans" id="createquestion">Create <i class="bi bi-check-square-fill"></i></button>

@@ -130,7 +130,7 @@ $currentPage = 'home.php';
     </div>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-12 text-end">
+            <div class="col-12 text-end mb-5">
                 <button class="leave josefin-sans finish" id="finish" type="button">Finish <i class="bi bi-check-all"></i></button>
                 <button class="leave createquestion josefin-sans" id="createquestion">Create <i class="bi bi-check-square-fill"></i></button>
             </div>

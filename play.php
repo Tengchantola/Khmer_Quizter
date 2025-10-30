@@ -142,6 +142,21 @@ if (isset($_GET['quizid'])) {
         <div class="col-12 text-center  ">
             <h1 id="questionContainer"></h1>
         </div>
+        <div class="row mt-5" id="answerContainer">
+
+            <!-- <div class="col-3 answer1">
+                <h1>a</h1>
+            </div>
+            <div class="col-3 answer2">
+                <h1>b</h1>
+            </div>
+            <div class="col-3 answer3">
+                <h1>c</h1>
+            </div>
+            <div class="col-3 answer4">
+                <h1>d</h1>
+            </div> -->
+        </div>
     </div>
 </div>
 
@@ -155,7 +170,7 @@ if (isset($_GET['quizid'])) {
             <h1 class="mt-3"><?php echo $QuizTitle ?></h1>
         </div>
         <div class="col-12 text-center congratss">
-            <h1>Congratulation you completed the quiz!</h1>
+            <h1>Congratulation! You completed the quiz.</h1>
         </div>
         <div class="col-12 text-center congratss">
             <h1 class='yourscore'></h1>

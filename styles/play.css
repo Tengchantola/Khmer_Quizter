@@ -20,18 +20,22 @@
   min-height: 246px;
   overflow: hidden;
   display: flex;
+  margin-right: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   margin-bottom: 20px;
-  border: #ce0037 5px solid;
 }
 
 .image-container img {
-  border-radius: 5px 5px 0 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+  border-radius: 2px 2px 0 0;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 20px;
+  max-width: 100%;
+  height: auto;
+  border: #ce0037 5px solid;
 }
 
 .button button {

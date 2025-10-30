@@ -16,7 +16,6 @@
         </a>
         <div class="container">
             <div class="row g-4 mb-5">
-                <!-- Brand Section -->
                 <div class="col-lg-4 col-md-6 footer-section">
                     <div class="brand mb-4">
                         <div class="brand-name">Khmer Quizter</div>
