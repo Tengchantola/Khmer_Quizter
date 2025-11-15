@@ -5,7 +5,7 @@ if (!isset($_SESSION['Username'])) {
     $_SESSION['Username'] = "Guest";
     $_SESSION['Email'] = "guest";
     $_SESSION['Role'] = 'Guest';
-    $_SESSION['Profile'] = "https://media.valorant-api.com/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/displayicon.png";
+    $_SESSION['Profile'] = "https://i.postimg.cc/8zn3qLcL/3e7b76dbafbc491605e5b1fccd3ed7b3.jpg";
 }
 if (isset($_SESSION['Role']) === "Admin") {
     header("Location: record.php");
@@ -26,9 +26,9 @@ if (isset($_GET['quizid'])) {
         <div class="col-12 button"><button type='button'><i class="bi bi-backspace-fill backk"></i> Leave</button></div>
         <div class="col-12 text-center mainn">
             <?php
-             $getquiz = "SELECT Quiz.*, UserAccount.Username, UserAccount.UserID 
+             $getquiz = "SELECT Quiz.*, u.Username, u.UserID 
                        FROM Quiz 
-                       JOIN UserAccount ON Quiz.CreatorID = UserAccount.UserID 
+                       JOIN UserAccount u ON Quiz.CreatorID = u.UserID 
                        WHERE QuizID = '$quizid'";
             $result = mysqli_query($conn, $getquiz);
             if ($result) {
@@ -50,15 +50,11 @@ if (isset($_GET['quizid'])) {
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-3">
-
-                </div>
+                <div class="col-3"></div>
                 <div class="col-xxl-2 col-12 quiztitle">
                     <h1><?php echo $QuizTitle ?></h1>
                 </div>
-                <div class="col-3">
-
-                </div>
+                <div class="col-3"></div>
                 <div class="col-xxl-2 col-12 plays">
                     <h1>
                         <?php 
@@ -66,32 +62,19 @@ if (isset($_GET['quizid'])) {
                         ?>
                     </h1>
                 </div>
-
-                <div class="col-2">
-
-                </div>
+                <div class="col-2"></div>
             </div>
             <div class="row">
-                <div class="col-3">
-
-                </div>
+                <div class="col-3"></div>
                 <div class="col-xxl-2 col-12 creator">
                     <h1>By <?php echo $Creator ?></h1>
                 </div>
-                <div class="col-3">
-
-                </div>
-                <div class="col-3">
-
-                </div>
-                <div class="col-1">
-
-                </div>
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+                <div class="col-1"></div>
             </div>
             <div class="row">
-                <div class="col-3">
-
-                </div>
+                <div class="col-3"></div>
                 <div class="col-xxl-2 col-12 ques">
                     <h1>
                         <?php 
@@ -99,16 +82,9 @@ if (isset($_GET['quizid'])) {
                         ?>
                     </h1>
                 </div>
-
-                <div class="col-3">
-
-                </div>
-                <div class="col-3">
-
-                </div>
-                <div class="col-1">
-
-                </div>
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+                <div class="col-1"></div>
             </div>
             <div class="row">
                 <div class="col-12 text-center start">
@@ -136,14 +112,11 @@ if (isset($_GET['quizid'])) {
         <div class="col-12 text-center">
             <h3 id="questionNumber"></h3>
         </div>
-        <div class="col-12 timer text-center">
-
-        </div>
+        <div class="col-12 timer text-center"></div>
         <div class="col-12 text-center  ">
             <h1 id="questionContainer"></h1>
         </div>
         <div class="row mt-5" id="answerContainer">
-
             <!-- <div class="col-3 answer1">
                 <h1>a</h1>
             </div>
@@ -180,7 +153,6 @@ if (isset($_GET['quizid'])) {
         </div>
     </div>
 </div>
-
 <script>
     var quizid = '<?php echo $quizid; ?>';
     var userID = '<?php echo isset($_SESSION['UserID']) ? $_SESSION['UserID'] : ''; ?>';

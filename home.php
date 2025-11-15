@@ -7,7 +7,7 @@ if (!isset($_SESSION['Username'])) {
     $_SESSION['Email'] = "guest";
     $_SESSION['Role'] = 'Guest';
     $_SESSION['UserID'] = 11;
-    $_SESSION['Profile'] = "https://media.valorant-api.com/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/displayicon.png";
+    $_SESSION['Profile'] = "https://i.postimg.cc/8zn3qLcL/3e7b76dbafbc491605e5b1fccd3ed7b3.jpg";
 }
 
 if (isset($_SESSION['Role']) && $_SESSION['Role'] === "Admin") {
@@ -136,7 +136,6 @@ include_once 'nav.php';
                     <h2><i class='bi bi-fire' style='color: var(--primary-color);'></i> Popular Quizzes</h2>
                 </div>
                 <div class='row'>";
-                
                 $count = 0;
                 foreach ($rows as $row) {
                     if ($count < 4) {
@@ -192,12 +191,10 @@ include_once 'nav.php';
             WHERE Type = '$type'
             GROUP BY Quiz.QuizID
             HAVING question_count > 0;";
-            
             $result = mysqli_query($conn, $displayQuery);
             if ($result) {
                 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 shuffle($rows);
-                
                 if (count($rows) > 0) {
                     echo "<div class='show' id='$part'>";
                     echo "<div class='section-header'>
@@ -207,7 +204,6 @@ include_once 'nav.php';
                         </a>
                     </div>
                     <div class='row'>";
-                    
                     $count = 0;
                     foreach ($rows as $row) {
                         if ($count < 4) {
@@ -270,9 +266,7 @@ include_once 'nav.php';
         ?>
     </div>
 </div>
-
 <?php include_once "footer.php"; ?>
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="javascripts/home.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>

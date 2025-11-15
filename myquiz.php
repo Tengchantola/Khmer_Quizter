@@ -122,14 +122,12 @@ include_once 'nav.php';
                 $Author = $row['Username'];
                 $image = $row['Image'];
                 $play = $row['Play'];
-                
                 $getquestionamount = "SELECT QuestionID FROM QuizQuestion WHERE QuizID = '$QuizID'";
                 $resultt = mysqli_query($conn, $getquestionamount);
                 $numQues = 0;
                 if ($resultt) {
                     $numQues = mysqli_num_rows($resultt);
                 }
-
                 echo "
                 <div class='col-lg-3 col-md-4 col-sm-6 fade-in quiz-item'>
                     <div class='quiz-card' 
@@ -140,14 +138,12 @@ include_once 'nav.php';
                     data-title='$Quiztitle' 
                     data-author='$Author' 
                     data-image='$image'>
-
                     <div class='quiz-card-image'>
                         <img src='$image' alt='$Quiztitle'>
                         <span class='quiz-badge'>
                             <i class='bi bi-play-circle'></i> $play Plays
                         </span>
                     </div>
-
                     <div class='quiz-card-body'>
                         <h3 class='quiz-title fw-bold'>$Quiztitle</h3>
                         <div class='quiz-author'>
@@ -162,7 +158,6 @@ include_once 'nav.php';
                         </div>
                     </div>
                 </div>
-
                 </div>";
             }
         } else {
@@ -182,12 +177,10 @@ include_once 'nav.php';
         ?>
     </div>
 </div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script src="javascripts/myQuiz.js"></script>
-
 <?php
     include_once "footer.php";
 ?>

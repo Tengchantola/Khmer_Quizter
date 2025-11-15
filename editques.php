@@ -52,7 +52,6 @@ $result = mysqli_query($conn, $editques);
                         }
                     }
                 }
-
                 ?>
             </div>
         </div>

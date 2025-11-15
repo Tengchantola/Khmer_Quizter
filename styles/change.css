@@ -12,6 +12,9 @@ nav {
   background-color: #d9d9d9;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .leave {
   font-size: 20px;
@@ -58,8 +61,8 @@ nav {
 }
 
 .profile-avatar {
-  width: 96px;
-  height: 96px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -71,8 +74,8 @@ nav {
 }
 
 .profile-avatar img {
-  width: 60px;
-  height: 60px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
 }
 

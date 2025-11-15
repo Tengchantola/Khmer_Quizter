@@ -48,7 +48,6 @@ include_once 'nav.php';
             </div>
         </div>
     </div>
-
 </div>
 <div class="container find mt-3">
     <div class="row">
@@ -74,7 +73,7 @@ include_once 'nav.php';
                 FROM QuizQuestion
                 GROUP BY QuizID
             ) AS QuestionCount ON Quiz.QuizID = QuestionCount.QuizID
-            WHERE QuizTitle LIKE ? AND question_count > 0;
+            WHERE QuizTitle LIKE ? AND QuestionCount.question_count > 0;
             ";
             $keyword = "%$keyword%";
             $stmt = mysqli_prepare($conn, $query);

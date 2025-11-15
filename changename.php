@@ -11,7 +11,6 @@ if (isset($_POST["new_name"])) {
     } else {
         echo "Error updating name: " . $conn->error;
     }
-
     $conn->close();
 } else {
     echo "New name is not provided";

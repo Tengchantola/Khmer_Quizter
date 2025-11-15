@@ -7,20 +7,17 @@ include_once "nav.php";
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $QuizID = $_GET['scorequiz'];
     $query = "SELECT 
-                Quiz.QuizTitle,
-                Quiz.Image,
-                UserAccount.Username,
-                UserAccount.UserID,
-                COUNT(UserQuizAttempts.AttemptID) AS PlayCount,
-                MAX(UserQuizAttempts.Score) AS MaxScore,
-                MAX(UserQuizAttempts.CompletedAt) AS Date
-              FROM Quiz 
-              LEFT JOIN UserQuizAttempts ON Quiz.QuizID = UserQuizAttempts.QuizID 
-              LEFT JOIN UserAccount ON UserQuizAttempts.UserID = UserAccount.UserID 
-              WHERE Quiz.QuizID = '$QuizID' 
-              GROUP BY UserAccount.UserID, UserAccount.Username
-              ORDER BY MaxScore DESC, PlayCount ASC";
-              
+    q.QuizTitle, 
+    q.Image, 
+    u.Username, 
+    u.UserID, 
+    COUNT(ut.AttemptID) AS PlayCount, 
+    MAX(ut.Score) AS MaxScore, 
+    MAX(ut.CompletedAt) AS Date 
+    FROM Quiz q 
+    LEFT JOIN UserQuizAttempts ut ON q.QuizID = ut.QuizID 
+    LEFT JOIN UserAccount u ON u.UserID = ut.UserID WHERE q.QuizID = '$QuizID' 
+    GROUP BY u.UserID, u.Username ORDER BY MaxScore DESC, PlayCount ASC;";
     $result = mysqli_query($conn, $query);
     if ($result) {
         $row = mysqli_fetch_assoc($result); 

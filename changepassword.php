@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $newPassword = $_POST["new_password"];
         $sql = "SELECT Password FROM UserAccount WHERE UserID = '{$_SESSION['UserID']}'";
         $result = $conn->query($sql);
-        
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $storedPassword = $row["Password"];

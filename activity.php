@@ -100,7 +100,6 @@ $result = mysqli_query($conn, $getactivity);
                     </div>
                 </div>";
             }
-            
             mysqli_close($conn);
             ?>
         </div>

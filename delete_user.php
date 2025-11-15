@@ -5,14 +5,12 @@ include "database/database.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["userid"])) {
         $userid = $_POST["userid"];
-
         try {
             $trydelete = "DELETE FROM UserAccount WHERE UserID = $userid";
             $resulte = mysqli_query($conn, $trydelete);
         } catch (Exception $e) {
             // echo "Error: " . $e->getMessage();
         }
-
         $getquiz = "SELECT QuizID FROM Quiz Where CreatorID = $userid";
         $firstresult = mysqli_query($conn, $getquiz);
         if ($firstresult) {

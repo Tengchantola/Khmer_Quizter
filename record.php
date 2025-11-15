@@ -254,7 +254,6 @@ function getTotalPlaysByCategory($conn, $category)
                                     echo $playCount;
                                 }
                                 ?>
-
                             </h2>
                             <?php
                             $getlastplay = "SELECT COUNT(*) as yesterdayplay
@@ -404,8 +403,6 @@ function getTotalPlaysByCategory($conn, $category)
             }
         }
     });
-
-    // Create pie chart
     var pieCtx = document.getElementById('pieChart').getContext('2d');
     var pieChart = new Chart(pieCtx, {
         type: 'pie',

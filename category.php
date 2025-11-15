@@ -7,7 +7,7 @@
         $_SESSION['Email'] = "guest";
         $_SESSION['Role'] = 'Guest';
         $_SESSION['UserID'] = 11;
-        $_SESSION['Profile'] = "https://media.valorant-api.com/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/displayicon.png";
+        $_SESSION['Profile'] = "https://i.postimg.cc/8zn3qLcL/3e7b76dbafbc491605e5b1fccd3ed7b3.jpg";
     }
 
     if (isset($_SESSION['Role']) && $_SESSION['Role'] === "Admin") {
@@ -65,7 +65,6 @@ function displayQuizzes($conn, $type, $part)
                             data-title='$Quiztitle' 
                             data-author='$Author' 
                             data-image='$image'>
-
                         <div class='quiz-card-image'>
                             <img src='$image' alt='$Quiztitle'>
                             <span class='quiz-badge'>

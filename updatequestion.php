@@ -1,11 +1,9 @@
 <?php
 session_start();
-
 $db_server = "localhost";
 $db_user = "root";
 $db_pass = "";
 $db_name = "khmer-quizter";
-
 $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
 
 if (!$conn) {
@@ -17,9 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $question = mysqli_real_escape_string($conn, $_POST['question']);
         $quesid = mysqli_real_escape_string($conn, $_POST['quesid']);
         $duration = $_POST['duration'];
-
         $update_question_query = "UPDATE Question SET Question = '$question', Duration = '$duration' WHERE QuestionID = '$quesid'";
-
         if (mysqli_query($conn, $update_question_query)) {
             $answers = array(
                 1 => array('id' => $_POST['answerid1'], 'text' => $_POST['answer1'], 'correct' => $_POST['iscorrect1']),
@@ -27,18 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 3 => array('id' => $_POST['answerid3'], 'text' => $_POST['answer3'], 'correct' => $_POST['iscorrect3']),
                 4 => array('id' => $_POST['answerid4'], 'text' => $_POST['answer4'], 'correct' => $_POST['iscorrect4'])
             );
-
             foreach ($answers as $key => $answer) {
                 if (!empty($answer['text'])) {
                     $answer_id = mysqli_real_escape_string($conn, $answer['id']);
                     $answer_text = mysqli_real_escape_string($conn, $answer['text']);
                     $is_correct = mysqli_real_escape_string($conn, $answer['correct']);
-
                     $update_answer_query = "UPDATE Answers SET Answer = '$answer_text', is_correct = '$is_correct' WHERE AnswerID = '$answer_id'";
                     mysqli_query($conn, $update_answer_query);
                 }
             }
-
             echo "Update Success!";
         } else {
             echo "Error executing the query: " . mysqli_error($conn);

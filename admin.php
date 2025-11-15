@@ -157,7 +157,6 @@ include_once "dashboard.php";
         <div class="no-results p-3 ps-5">
             <h3>No results found for "<span id="searchTerm"></span>"</h3>
         </div>
-
         <?php
         $getuser = "SELECT * FROM UserAccount where Role != 'Admin' and Role !='Guest'";
         $result = mysqli_query($conn, $getuser);
@@ -182,7 +181,6 @@ include_once "dashboard.php";
                 <input type='text' style='display:none;' name='userid' value='$userid'>
                  <button class='diable $status disableButton'>Disable User</button><button class='delete'>Delete User</button>
                 </div>
-                
                 </div>";
             }
         }

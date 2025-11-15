@@ -99,7 +99,6 @@ if ($resultquiz) {
                 echo " <div class='col-12 text-start eques mb-3'><h3>";
                 echo $index . ". ";
                 echo $question;
-
                 echo " </h3><button class='edit btn btn-warning mx-2'>Edit</button><button class='delete btn btn-danger' >Delete</button> <input type='text' value='$questionid' style='display:none'><input type='text' id='quizid' value='$quizid' style='display:none'></div>";
                 $index++;
             }

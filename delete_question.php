@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt1 = mysqli_prepare($conn, $sql);
         $stmt2 = mysqli_prepare($conn, $delsql);
         $stmt3 = mysqli_prepare($conn, $dellast);
-
         if ($stmt1 && $stmt2 && $stmt3) {
             mysqli_stmt_bind_param($stmt1, "s", $quesid);
             mysqli_stmt_bind_param($stmt2, "s", $quesid);

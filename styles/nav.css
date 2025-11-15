@@ -57,7 +57,7 @@ nav {
 .home {
   display: flex;
   align-items: center;
-  border-bottom: 5px solid transparent;
+  border-bottom: 3px solid transparent;
   transition: 0.3s;
   margin: 0 30px;
 }
@@ -76,7 +76,7 @@ nav {
 }
 
 .home:hover {
-  border-bottom: 5px solid #ce0037;
+  border-bottom: 3px solid #ce0037;
   transition: 0.3s;
 }
 
@@ -85,7 +85,7 @@ nav {
 }
 
 .onpage {
-  border-bottom: 4px solid #ce0037;
+  border-bottom: 3px solid #ce0037;
 }
 
 .onpage h3,

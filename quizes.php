@@ -287,7 +287,6 @@ if ($result) {
                 <img src='uploads/222.jpg' class='images' alt=''>
             </div>
             <div class='card-body contentbody'>
-
                 <div class="col-12 d-flex rawr">
                     <div class='text-start authorr josefin-sans'>By $Author</div>
                     <h6 class='authorname plays'></h6>
@@ -300,7 +299,6 @@ if ($result) {
                     <div class='text-start numofques josefin-sans'></div>
                     <h6 class='authorname delques'>Delete Quiz</h6>
                 </div>
-
                 <br><br>
             </div>
         </div>
@@ -353,7 +351,6 @@ if ($result) {
         } else {
             echo "Error: " . mysqli_error($conn);
         }
-
         mysqli_close($conn);
         ?>
     </div>
@@ -361,7 +358,6 @@ if ($result) {
 <br><br><br><br><br>
 <script>
     $(document).ready(function() {
-
         $('.ccc').fadeIn(700)
         $('.carde').click(function() {
             var quizcode = $(this).children().eq(0).val();
@@ -380,7 +376,6 @@ if ($result) {
             $('.detail .plays').html(play + " plays");
             $('.detail .quizcodee').html("QuizCode : " + "<span id='quizCode'>" + quizcode + "</span>" + " <i class='bi bi-copy' id='copyIcon'></i>")
             $('.detail .numofques').html(numofques + " Questions")
-
             $('.detail .edit').click(function() {
                 var url = "edit.php?quizid=" + quizid;
                 window.location.href = url;
@@ -398,73 +393,47 @@ if ($result) {
                     if (result.value) {
                         $.ajax({
                             type: 'POST',
-                            url: 'delete_quiz.php', // Adjust the URL to your delete_quiz.php endpoint
+                            url: 'delete_quiz.php',
                             data: {
                                 quizId: quizid
-                            }, // Pass the quiz ID to the server
+                            }, 
                             success: function(response) {
-                                // Handle the response from the server
                                 location.reload();
-                                // Optionally, you can reload the page or perform other actions after successful deletion
                             },
                             error: function(xhr, status, error) {
-                                // Handle errors
                                 console.error(error);
                             }
                         });
                     } else {
-                        // User clicked "No" or outside the modal
                         // Perform any alternative action or do nothing
                     }
                 });
-
-
-
             });
-
             $('.close').click(function() {
                 $('.detail').fadeOut(300);
             })
-            // Display notification message in modal
             function displayNotification(message) {
                 var modal = document.getElementById("notificationModal");
                 var notificationMessage = document.getElementById("notificationMessage");
                 notificationMessage.innerHTML = message;
                 modal.style.display = "block";
-
-                // Close the modal when the user clicks on the close button
                 var closeButton = document.getElementsByClassName("close")[0];
                 closeButton.onclick = function() {
                     modal.style.display = "none";
                 }
-
-                // Close the modal after 3 seconds
                 setTimeout(function() {
                     modal.style.display = "none";
-
-                }, 1000); // 3000 milliseconds = 3 seconds
+                }, 1000);
             }
-
-            // Example usage:
-
-
             document.getElementById('copyIcon').addEventListener('click', function() {
-                // Select the text inside the span element
                 var quizCode = document.getElementById('quizCode');
                 var range = document.createRange();
                 range.selectNode(quizCode);
                 window.getSelection().removeAllRanges();
                 window.getSelection().addRange(range);
-
-                // Copy the selected text to the clipboard
                 document.execCommand('copy');
-
-                // Remove the selection from the document
                 window.getSelection().removeAllRanges();
-
-                // Alert the user or perform any other action
                 displayNotification("Quiz code copied");
-
             });
         });
     });

@@ -13,8 +13,6 @@ try {
         $db_pass,
         $db_name
     );
-
-
     if ($conn) {
     } else {
         echo "Error Connection";

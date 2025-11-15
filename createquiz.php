@@ -17,46 +17,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $file_name = $_FILES["image"]["name"];
         $file_temp = $_FILES["image"]["tmp_name"];
         $upload_dir = "uploads/";
-        
-        // Create uploads directory if it doesn't exist
         if (!file_exists($upload_dir)) {
             if (!mkdir($upload_dir, 0777, true)) {
                 echo "Failed to create upload directory!";
                 exit;
             }
         }
-        
-        // Check if directory is writable
         if (!is_writable($upload_dir)) {
             echo "Upload directory is not writable!";
             exit;
         }
-        
-        // Generate unique filename to avoid conflicts
         $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
         $unique_filename = time() . '_' . uniqid() . '.' . $file_extension;
         $target_file = $upload_dir . $unique_filename;
-        
-        // Validate image file
         $check = getimagesize($file_temp);
         if ($check === false) {
             echo "File is not a valid image!";
             exit;
         }
-        
-        // Check file size (max 5MB)
         if ($_FILES["image"]["size"] > 5000000) {
             echo "File is too large. Maximum size is 5MB.";
             exit;
         }
-        
-        // Allow certain file formats
         $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
         if (!in_array(strtolower($file_extension), $allowed_types)) {
             echo "Only JPG, JPEG, PNG & GIF files are allowed.";
             exit;
         }
-
         function generateQuizCode($length = 6) {
             $characters = '0123456789';
             $code = '';
@@ -65,9 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             return $code;
         }
-
         $quizCode = generateQuizCode();
-
         $sql = "SELECT COUNT(*) AS count FROM Quiz WHERE QuizCode = '$quizCode'";
         $result = mysqli_query($conn, $sql);
         if ($result && mysqli_num_rows($result) > 0) {
@@ -76,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $quizCode = generateQuizCode();
             }
         }
-
         if (move_uploaded_file($file_temp, $target_file)) {
             $createquiz = "INSERT INTO Quiz (QuizTitle, Type, CreatorID, Image, QuizCode) VALUES ('$QuizName', '$Quiztype', '{$_SESSION['UserID']}', '$target_file', '$quizCode')";
             if (mysqli_query($conn, $createquiz)) {
@@ -106,6 +90,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid request.";
     }
 }
-
 mysqli_close($conn);
 ?>
