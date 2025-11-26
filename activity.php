@@ -19,7 +19,6 @@ $currentPage = 'activity.php';
 include_once 'nav.php';
 
 $UserID = $_SESSION['UserID'];
-echo($UserID);
 $getactivity = "SELECT 
                 Quiz.QuizTitle,
                 Quiz.Play,
@@ -40,11 +39,12 @@ $result = mysqli_query($conn, $getactivity);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <title>Activity</title>
     <link rel="stylesheet" href="styles/activity.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
             <?php
             if ($result && mysqli_num_rows($result) > 0) {
