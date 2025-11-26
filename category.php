@@ -1,7 +1,6 @@
 <?php
     session_start();
     include "database/database.php";
-
     if (!isset($_SESSION['Username'])) {
         $_SESSION['Username'] = "Guest";
         $_SESSION['Email'] = "guest";
@@ -9,12 +8,10 @@
         $_SESSION['UserID'] = 11;
         $_SESSION['Profile'] = "https://i.postimg.cc/8zn3qLcL/3e7b76dbafbc491605e5b1fccd3ed7b3.jpg";
     }
-
     if (isset($_SESSION['Role']) && $_SESSION['Role'] === "Admin") {
         header("Location: admin.php");
         exit;
     }
-
     $currentPage = 'home.php';
     include_once 'nav.php';
 ?>

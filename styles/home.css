@@ -495,10 +495,10 @@ body {
   background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
   color: white;
   border: none;
-  padding: 1.25rem;
+  padding: 1rem;
   border-radius: 16px;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;

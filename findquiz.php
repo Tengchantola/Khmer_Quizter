@@ -104,14 +104,12 @@ include_once 'nav.php';
                         data-title='$Quiztitle' 
                         data-author='$Author' 
                         data-image='$image'>
-
                         <div class='quiz-card-image'>
                             <img src='$image' alt='$Quiztitle'>
                             <span class='quiz-badge'>
                                 <i class='bi bi-play-circle'></i> $play Plays
                             </span>
                         </div>
-
                         <div class='quiz-card-body'>
                             <h3 class='quiz-title'>$Quiztitle</h3>
                             <div class='quiz-author'>

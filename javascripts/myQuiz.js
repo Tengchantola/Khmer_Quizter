@@ -6,51 +6,40 @@ $(document).ready(function () {
     document.getElementById("notificationToast")
   );
 
-  // Handle quiz card click
   $(".quiz-card").click(function () {
     const $this = $(this);
     const quizcode = $this.data("quizcode");
     const quizid = $this.data("quizid");
-    const numofques = $this.data("numques");
+    const numofques = $this.data("questions");
     const plays = $this.data("plays");
     const image = $this.data("image");
     const title = $this.data("title");
     const author = $this.data("author");
-
-    // Populate modal
+    const questionLabel = numofques <= 1 ? "Question" : "Questions";
+    const playLabel = plays <= 1 ? "Play" : "Plays";
     $("#quizDetailModal .quiztitle").text(title);
     $("#quizDetailModal .detail-image").attr("src", image);
     $("#quizDetailModal .authorr").text(author);
-    $("#quizDetailModal .plays-display span").text(plays + " plays");
+    $("#quizDetailModal .plays-display span").text(`${plays} ${playLabel}`);
     $("#quizDetailModal #quizCode").text(quizcode);
-    $("#quizDetailModal .numofques").text(numofques + " Questions");
+    $("#quizDetailModal .numofques").text(`${numofques} ${questionLabel}`);
     $("#quizDetailModal .play-btn").attr("data-quiz", quizid);
-
-    // Show modal
     quizModal.show();
-
-    // Play button
     $("#quizDetailModal .play-btn")
       .off("click")
       .on("click", function () {
         window.location.href = "play.php?quizid=" + quizid;
       });
-
-    // Leaderboard button
     $("#quizDetailModal .leaderboard-btn")
       .off("click")
       .on("click", function () {
         window.location.href = "leaderboard.php?scorequiz=" + quizid;
       });
-
-    // Edit button
     $("#quizDetailModal .edit-btn")
       .off("click")
       .on("click", function () {
         window.location.href = "edit.php?quizid=" + quizid;
       });
-
-    // Delete button
     $("#quizDetailModal .delete-btn")
       .off("click")
       .on("click", function () {
@@ -72,7 +61,6 @@ $(document).ready(function () {
               success: function (response) {
                 $this.closest(".quiz-item").fadeOut(300, function () {
                   $(this).remove();
-                  // Check if no more quizzes
                   if ($(".quiz-item").length === 0) {
                     location.reload();
                   }
@@ -80,7 +68,7 @@ $(document).ready(function () {
                 quizModal.hide();
                 displayNotification("Quiz deleted successfully!");
               },
-              error: function (xhr, status, error) {
+              error: function (error) {
                 console.error(error);
                 displayNotification("Error deleting quiz!");
               },
@@ -88,8 +76,6 @@ $(document).ready(function () {
           }
         });
       });
-
-    // Copy quiz code
     setTimeout(() => {
       $("#copyIcon")
         .off("click")
@@ -102,7 +88,6 @@ $(document).ready(function () {
               displayNotification("Quiz code copied to clipboard!");
             })
             .catch(function () {
-              // Fallback for older browsers
               const tempInput = document.createElement("input");
               tempInput.value = quizCodeText;
               document.body.appendChild(tempInput);
@@ -115,7 +100,6 @@ $(document).ready(function () {
     }, 100);
   });
 
-  // Notification function
   function displayNotification(message) {
     $("#notificationMessage").text(message);
     $("#notificationToast")
@@ -123,7 +107,5 @@ $(document).ready(function () {
       .addClass("bg-success text-white");
     notificationToast.show();
   }
-
-  // Make displayNotification global
   window.displayNotification = displayNotification;
 });

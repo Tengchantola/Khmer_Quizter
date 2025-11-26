@@ -17,9 +17,9 @@ $(document).ready(function () {
   $(".dropdown").click(function () {
     $(".dropdown-menu").toggle();
   });
-  $(".menu").mouseleave(function () {
-    $(".dropdown-menu").hide();
-  });
+  // $(".menu").mouseleave(function () {
+  //   $(".dropdown-menu").hide();
+  // });
   $(".settingg").click(function () {
     window.location = "change.php";
   });

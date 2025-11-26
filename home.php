@@ -19,6 +19,8 @@ $currentPage = 'home.php';
 include_once 'nav.php';
 ?>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 <link rel="stylesheet" href="styles/home.css">
 
 <!-- Notification Toast -->
@@ -86,11 +88,11 @@ include_once 'nav.php';
                 <div class="quiz-stats">
                     <span class="stat-badge" id="modalPlays">
                         <i class="bi bi-play-circle"></i>
-                        <span>0 plays</span>
+                        <span>0 Play</span>
                     </span>
                     <span class="stat-badge" id="modalQuestions">
                         <i class="bi bi-question-circle"></i>
-                        <span>0 questions</span>
+                        <span>0 Question</span>
                     </span>
                 </div>
                 <div class="quiz-code-section">
@@ -152,12 +154,13 @@ include_once 'nav.php';
                             $rowt = mysqli_fetch_assoc($resultt);
                             $numRows = $rowt['question_count'];
                         }
-                        
+                        $label = ($numRows <= 1) ? "Question" : "Questions";
+                        $playLabel = ($play <= 1)? "Play" : "Plays";
                         echo "<div class='col-lg-3 col-md-6 col-12 mt-4 mt-md-0'>
                             <div class='quiz-card' data-quizcode='$QuizCode' data-quizid='$QuizID' data-questions='$numRows' data-plays='$play' data-title='$Quiztitle' data-author='$Author' data-image='$image'>
                                 <div class='quiz-card-image'>
                                     <img src='$image' alt='$Quiztitle'>
-                                    <span class='quiz-badge'><i class='bi bi-play-circle'></i> $play Plays</span>
+                                    <span class='quiz-badge'><i class='bi bi-play-circle'></i> $play {$playLabel}</span>
                                 </div>
                                 <div class='quiz-card-body'>
                                     <h3 class='quiz-title'>$Quiztitle</h3>
@@ -168,7 +171,7 @@ include_once 'nav.php';
                                     <div class='quiz-stats'>
                                         <span class='stat-badge'>
                                             <i class='bi bi-question-circle'></i>
-                                            $numRows Questions
+                                            $numRows {$label}
                                         </span>
                                     </div>
                                 </div>
@@ -220,12 +223,13 @@ include_once 'nav.php';
                                 $rowt = mysqli_fetch_assoc($resultt);
                                 $numRows = $rowt['question_count'];
                             }
-                            
+                            $label = ($numRows <= 1) ? "Question" : "Questions";
+                            $playLabel = ($play <= 1) ? "Play" :"Plays";
                             echo "<div class='col-lg-3 col-md-6 col-12 mt-4 mt-md-0'>
                                 <div class='quiz-card' data-quizcode='$QuizCode' data-quizid='$QuizID' data-questions='$numRows' data-plays='$play' data-title='$Quiztitle' data-author='$Author' data-image='$image'>
                                     <div class='quiz-card-image'>
                                         <img src='$image' alt='$Quiztitle'>
-                                        <span class='quiz-badge'><i class='bi bi-play-circle'></i> $play Plays</span>
+                                        <span class='quiz-badge'><i class='bi bi-play-circle'></i> $play ${playLabel}</span>
                                     </div>
                                     <div class='quiz-card-body'>
                                         <h3 class='quiz-title'>$Quiztitle</h3>
@@ -236,7 +240,7 @@ include_once 'nav.php';
                                         <div class='quiz-stats'>
                                             <span class='stat-badge'>
                                                 <i class='bi bi-question-circle'></i>
-                                                $numRows Questions
+                                                $numRows {$label}
                                             </span>
                                         </div>
                                     </div>

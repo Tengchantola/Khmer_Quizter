@@ -76,12 +76,12 @@ include_once 'nav.php';
                     </div>
 
                     <!-- Play and Leaderboard -->
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-outline-danger leaderboard-btn">
-                            <i class="bi bi-trophy-fill me-2"></i> View Leaderboard
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success flex-fill btn-play play-btn" data-quiz="">
+                            <i class="bi bi-play-fill me-1"></i> Play Now
                         </button>
-                        <button class="btn btn-success btn-play play-btn" data-quiz="">
-                            <i class="bi bi-play-fill me-2"></i> Play Now
+                        <button class="btn btn-outline-danger flex-fill leaderboard-btn">
+                            <i class="bi bi-trophy-fill me-1"></i> View Leaderboard
                         </button>
                     </div>
                 </div>
@@ -128,6 +128,8 @@ include_once 'nav.php';
                 if ($resultt) {
                     $numQues = mysqli_num_rows($resultt);
                 }
+                $label = ($numQues <= 1) ? "Question" : "Questions";
+                $play_label = ($play <= 1) ? "Play" : "Plays";
                 echo "
                 <div class='col-lg-3 col-md-4 col-sm-6 fade-in quiz-item'>
                     <div class='quiz-card' 
@@ -141,7 +143,7 @@ include_once 'nav.php';
                     <div class='quiz-card-image'>
                         <img src='$image' alt='$Quiztitle'>
                         <span class='quiz-badge'>
-                            <i class='bi bi-play-circle'></i> $play Plays
+                            <i class='bi bi-play-circle'></i> $play {$play_label}
                         </span>
                     </div>
                     <div class='quiz-card-body'>
@@ -153,7 +155,7 @@ include_once 'nav.php';
                         <div class='quiz-stats'>
                             <span class='stat-badge'>
                                 <i class='bi bi-question-circle'></i>
-                                $numQues Questions
+                                $numQues {$label}
                             </span>
                         </div>
                     </div>
@@ -179,7 +181,7 @@ include_once 'nav.php';
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="javascripts/myQuiz.js"></script>
 <?php
     include_once "footer.php";

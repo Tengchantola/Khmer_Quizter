@@ -6,7 +6,7 @@ if (isset($_GET['score']) && isset($_GET['UserID']) && isset($_GET['quizid'])) {
     $score = mysqli_real_escape_string($conn, $_GET['score']);
     $UserID = mysqli_real_escape_string($conn, $_GET['UserID']);
     $QuizID = mysqli_real_escape_string($conn, $_GET['quizid']);
-    $addScore = "INSERT INTO Score (QuizID, UserID, Score) VALUES ('$QuizID', '$UserID', '$score')";
+    $addScore = "INSERT INTO Score (QuizID, UserID, ScoreValue) VALUES ('$QuizID', '$UserID', '$score')";
     $result = mysqli_query($conn, $addScore);
     if ($result) {
         echo json_encode(array('success' => true));

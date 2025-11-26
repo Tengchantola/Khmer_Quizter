@@ -23,72 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $row = mysqli_fetch_assoc($result); 
         if ($row && $row['Username'] !== null) { 
 ?>
-            <style>
-                .button button {
-                    padding: 10px 30px;
-                    font-size: 25px;
-                    border: none;
-                    border-radius: 15px;
-                    font-weight: 700;
-                    background-color: #CE0037;
-                    color: white;
-                    margin: 20px;
-                    transition: 0.3s;
-                    box-shadow: 0 0 0.3rem black;
-                }
-
-                .button button:hover {
-                    background-color: white;
-                    color: #CE0037;
-                    transition: 0.3s;
-                }
-
-                .image-container {
-                    max-width: 310px;
-                    max-height: 180px;
-                    min-height: 200px;
-                    overflow: hidden;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: grey;
-                    margin: auto;
-                    border: #CE0037 5px solid;
-                }
-
-                .image-container img {
-                    border-radius: 5px 5px 0 0;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                }
-
-                .container {
-                    background-color: white;
-                    box-shadow: 0 0 0.2rem black;
-                    border-radius: 20px;
-                    margin-top: 5%;
-                }
-
-                .ttitle h1 {
-                    font-size: 25px;
-                }
-
-                .table {
-                    max-height: 250px;
-                    overflow-y: scroll;
-                }
-                
-                .table thead th {
-                    position: sticky;
-                    top: 0;
-                    background-color: #343a40;
-                    z-index: 10;
-                }
-            </style>
+            <link rel="stylesheet" href="styles/leaderboard.css">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 button"><button type='button'><i class="bi bi-backspace-fill"></i> Leave</button></div>
+                    <div class="col-12 button">
+                        <button type='button'>
+                            <i class="bi bi-backspace-fill"></i> Leave
+                        </button>
+                    </div>
                     <div class="col-12">
                         <div class="image-container">
                             <img src="<?php echo $row['Image'] ?>">
@@ -152,60 +94,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         <?php
         } else {
         ?>
-            <style>
-                .button button {
-                    padding: 10px 30px;
-                    font-size: 25px;
-                    border: none;
-                    border-radius: 15px;
-                    font-weight: 700;
-                    background-color: #CE0037;
-                    color: white;
-                    margin: 20px;
-                    transition: 0.3s;
-                    box-shadow: 0 0 0.3rem black;
-                }
-
-                .button button:hover {
-                    background-color: white;
-                    color: #CE0037;
-                    transition: 0.3s;
-                }
-
-                .image-container {
-                    max-width: 310px;
-                    max-height: 180px;
-                    min-height: 200px;
-                    overflow: hidden;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: grey;
-                    margin: auto;
-                    border: #CE0037 5px solid;
-                }
-
-                .image-container img {
-                    border-radius: 5px 5px 0 0;
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                }
-
-                .container {
-                    background-color: white;
-                    box-shadow: 0 0 0.2rem black;
-                    border-radius: 20px;
-                    margin-top: 5%;
-                }
-
-                .ttitle h1 {
-                    font-size: 25px;
-                }
-            </style>
+            <link rel="stylesheet" href="styles/leaderboard.css">
             <div class="container josefin-sans">
                 <div class="row">
-                    <div class="col-12 button"><button type='button'><i class="bi bi-backspace-fill"></i> Leave</button></div>
+                    <div class="col-12 button">
+                        <button type='button'><i class="bi bi-backspace-fill"></i> 
+                            Leave
+                        </button>
+                    </div>
                     <div class="col-12 text-center">
                         <div class="image-container">
                             <?php
@@ -231,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 ?>
 <script>
     $('.button').click(function() {
-        history.back();
+        // history.back();
+        window.location.href = 'home.php';
     })
 </script>

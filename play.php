@@ -35,9 +35,9 @@ if (isset($_GET['quizid'])) {
                 if (mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_assoc($result);
                     $QuizTitle = $row['QuizTitle'];
-                    $Creator = $row['Username'];
+                    $Username = $row['Username'];
                     $Image = $row['Image'];
-                    $play = isset($row['Play']) ? $row['Play'] : 0;
+                    $Play = isset($row['Play']) ? $row['Play'] : 0;
                     $getquestionamount = "SELECT QuestionID from QuizQuestion where QuizID = '$quizid'";
                     $resultt = mysqli_query($conn, $getquestionamount);
                     if ($resultt) {
@@ -58,7 +58,7 @@ if (isset($_GET['quizid'])) {
                 <div class="col-xxl-2 col-12 plays">
                     <h1>
                         <?php 
-                            echo $play . ' ' . ($play == 1 ? 'Play' : 'Plays'); 
+                            echo $Play . ' ' . ($Play <= 1 ? 'Play' : 'Plays'); 
                         ?>
                     </h1>
                 </div>
@@ -67,7 +67,7 @@ if (isset($_GET['quizid'])) {
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-xxl-2 col-12 creator">
-                    <h1>By <?php echo $Creator ?></h1>
+                    <h1>By <?php echo $Username ?></h1>
                 </div>
                 <div class="col-3"></div>
                 <div class="col-3"></div>
@@ -78,7 +78,7 @@ if (isset($_GET['quizid'])) {
                 <div class="col-xxl-2 col-12 ques">
                     <h1>
                         <?php 
-                            echo $numRows . ' ' . ($numRows == 1 ? 'Question' : 'Questions'); 
+                            echo $numRows . ' ' . ($numRows <= 1 ? 'Question' : 'Questions'); 
                         ?>
                     </h1>
                 </div>
@@ -88,7 +88,9 @@ if (isset($_GET['quizid'])) {
             </div>
             <div class="row">
                 <div class="col-12 text-center start">
-                    <button type='button ' id="startButton"> <i class="bi bi-play-fill"></i> Start</button>
+                    <button type='button' id="startButton"> 
+                        <i class="bi bi-play-fill"></i> Start
+                    </button>
                 </div>
             </div>
     <?php
@@ -102,7 +104,11 @@ if (isset($_GET['quizid'])) {
 </div>
 <div class="container showing josefin-sans">
     <div class="row">
-        <div class="col-12 button"><button type='button'><i class="bi bi-backspace-fill"></i> Leave</button></div>
+        <div class="col-12 button">
+            <button type='button'>
+                <i class="bi bi-backspace-fill"></i> Leave
+            </button>
+        </div>
         <div class="col-12 mainn">
             <div class="image-container image2">
                 <img src="<?php echo $Image; ?>">
@@ -149,7 +155,9 @@ if (isset($_GET['quizid'])) {
             <h1 class='yourscore'></h1>
         </div>
         <div class="col-12 text-center congratss">
-            <a type="button" class="view" href="leaderboard.php?scorequiz=<?php echo $quizid; ?>"><i class="fa-solid fa-chart-simple"></i> View Leaderboard</a>
+            <a type="button" class="view" href="leaderboard.php?scorequiz=<?php echo $quizid; ?>">
+                <i class="fa-solid fa-chart-simple"></i>
+                 View Leaderboard</a>
         </div>
     </div>
 </div>

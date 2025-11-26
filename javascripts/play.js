@@ -1,4 +1,3 @@
-// javascripts/play.js
 var currentQuestionIndex = 0;
 var score = 0;
 var questions;
@@ -14,9 +13,8 @@ function initializeEventListeners() {
   });
 
   $("#startButton").click(function () {
-    console.log("hello");
     score = 0;
-    enterFullscreen();
+    // enterFullscreen();
     $(".maining").hide();
     $(".showing").show();
     startQuiz();
@@ -47,13 +45,11 @@ function startQuiz() {
     },
     success: function (response) {
       questions = JSON.parse(response);
-      console.log(questions);
       currentQuestionIndex = 0;
       displayQuestion(currentQuestionIndex);
       startTimer(questions[currentQuestionIndex].duration);
     },
     error: function (xhr, status, error) {
-      console.error("Error:", error);
       alert(
         "An error occurred while fetching questions. Please try again later."
       );
@@ -64,12 +60,10 @@ function startQuiz() {
 function startTimer(time) {
   var correctAnswer = $("#answerContainer").find('[data-answer="1"]');
   var timeLeft = time;
-
-  clearInterval(timer); // Clear any existing timer
+  clearInterval(timer);
   timer = setInterval(function () {
     $(".timer").text("Time left: " + timeLeft + " seconds");
     timeLeft--;
-
     if (timeLeft < 0) {
       correctAnswer.addClass("button-trov");
       clearInterval(timer);
@@ -94,13 +88,11 @@ function displayQuestion(index) {
   var question = questions[index];
   var totalQuestions = questions.length;
   var currentQuestionNumber = index + 1;
-
   $("#questionNumber").text(
     "Question " + currentQuestionNumber + " of " + totalQuestions
   );
   $("#questionContainer").html(question.question_text);
   $("#answerContainer").html("");
-
   question.answers.forEach(function (answer) {
     $("#answerContainer").append(
       "<div class='col-xxl-3 col-lg-4 col-md-6 col-12 text-center answerbutton' data-answer='" +
@@ -110,7 +102,6 @@ function displayQuestion(index) {
         "</button></div>"
     );
   });
-
   checkAnswer();
 }
 
@@ -121,14 +112,10 @@ function checkAnswer() {
       var selectedAnswer = $(this).data("answer");
       var correctAnswer = $("#answerContainer").find('[data-answer="1"]');
       var clickedAnswer = $(this);
-
       clearInterval(timer);
-      console.log("click");
-
       if (selectedAnswer === 1) {
         clickedAnswer.addClass("button-trov");
         score++;
-        console.log(score);
         setTimeout(function () {
           if (currentQuestionIndex < questions.length) {
             displayNextQuestion();
@@ -164,10 +151,10 @@ function endQuiz() {
       quizid: quizid,
     },
     success: function (response) {
-      // Score saved successfully
+      console.log("Score saved successfully:", response);
     },
     error: function (xhr, status, error) {
-      console.error("Error:", error);
+      console.error("Error saving score:", error);
       alert(
         "An error occurred while saving your score. Please try again later."
       );

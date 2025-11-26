@@ -20,7 +20,7 @@ if (isset($_SESSION['Username'])) {
     <title>Khmer Quizter</title>
     <style>
         body {
-            background-image: url("./assets/Background.jpg");
+            background-image: url("./assets/Christmas_Background.avif");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;

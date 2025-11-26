@@ -18,11 +18,11 @@
     <nav>
         <div class="logo">
             <img src="./assets/Khmer_Quizter.png">
-            <h1 class="josefin-sans">Khmer Quizter</h1>
+            <h3 class="josefin-sans">Khmer Quizter</h3>
         </div>
         <div class="home record <?php if ($currentPage === 'record.php') echo ' onpage'; ?> ">
             <i class="bi bi-bar-chart-fill"></i>
-            <h1 class='josefin-sans'>Dashboard</h1>
+            <h3 class='josefin-sans'>Dashboard</h3>
         </div>
         <?php
         $role = $_SESSION['Role'];
@@ -30,12 +30,12 @@
             echo " <div class='home admin";
             if ($currentPage === 'admin.php') echo ' onpage';
             echo "'><i class='bi bi-person-circle'></i>";
-            echo "<h1 class='josefin-sans'>Users</h1></div>";
+            echo "<h3 class='josefin-sans'>Users</h3></div>";
         } else {
             echo " <div class='home homepage";
             if ($currentPage === 'home.php') echo ' onpage';
             echo "'><i class='fa-solid fa-house'></i>";
-            echo "<h1 class='josefin-sans'>Home</h1></div>";
+            echo "<h3 class='josefin-sans'>Home</h3></div>";
         }
         if ($role === "Guest") {
             echo "";
@@ -45,7 +45,7 @@
             echo " <div class='home activity";
             if ($currentPage === 'activity.php') echo ' onpage';
             echo "'><i class='fa-solid fa-clock-rotate-left'></i>";
-            echo "<h1 class='josefin-sans'>Activity</h1></div>";
+            echo "<h3 class='josefin-sans'>Activity</h3></div>";
         }
         ?>
         <?php
@@ -53,14 +53,13 @@
             echo " <div class='home quizes ";
             if ($currentPage === 'quizes.php') echo ' onpage';
             echo "'><i class='fa-solid fa-book'></i>";
-            echo "<h1 class='josefin-sans'>Quiz</h1></div>";
+            echo "<h3 class='josefin-sans'>Quiz</h3></div>";
         } else {
             echo " <div class='home findquiz ";
             if ($currentPage === 'findquiz.php') echo ' onpage';
             echo "'><i class='fa-solid fa-magnifying-glass'></i>";
-            echo "<h1 class='josefin-sans'>Find Quiz</h1></div>";
+            echo "<h3 class='josefin-sans'>Find Quiz</h3></div>";
         }
-
         if ($role === "Guest") {
             echo "";
         } else if ($role === "Admin") {
@@ -69,7 +68,7 @@
             echo " <div class='home myquiz ";
             if ($currentPage === 'myquiz.php') echo ' onpage';
             echo "'><i class='fa-solid fa-book'></i>";
-            echo "<h1 class='josefin-sans'>My Quiz</h1></div>";
+            echo "<h3 class='josefin-sans'>My Quiz</h3></div>";
         }
         ?>
         </div>
@@ -109,7 +108,7 @@
             </div>
         </div>
     </nav>
-    <div class="pagetitle josefin-sans">
+    <!-- <div class="pagetitle josefin-sans">
         <h1><?php if ($currentPage === 'admin.php') {
                 echo 'Users';
             } elseif ($currentPage === 'quizes.php') {
@@ -120,7 +119,7 @@
                 echo 'Record';
             };
             ?></h1>
-    </div>
+    </div> -->
 </body>
 </html>
 <script src="javascripts/dashboard.js"></script>

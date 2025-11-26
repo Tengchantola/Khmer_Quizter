@@ -19,12 +19,20 @@ $currentPage = 'activity.php';
 include_once 'nav.php';
 
 $UserID = $_SESSION['UserID'];
-$getactivity = "SELECT Quiz.QuizTitle,Quiz.Play,Score.UserID,Score.QuizID,Username, Quiz.Image, MAX(Score) AS MaxScore, MAX(Date) AS LastDate
-FROM Score
-JOIN Quiz on Score.QuizID = Quiz.QuizID JOIN UserAccount on Score.UserID = UserAccount.UserID WHERE Score.UserID = '$UserID'
-GROUP BY QuizID;
-";
-
+echo($UserID);
+$getactivity = "SELECT 
+                Quiz.QuizTitle,
+                Quiz.Play,
+                Score.UserID,
+                Score.QuizID, 
+                UserAccount.Username, 
+                Quiz.Image, 
+                MAX(Score.ScoreValue) AS MaxScore, MAX(Score.Date) AS LastDate
+                    FROM Score
+                    JOIN Quiz on Score.QuizID = Quiz.QuizID 
+                    JOIN UserAccount on Score.UserID = UserAccount.UserID WHERE Score.UserID = '$UserID'
+                    GROUP BY Score.QuizID;
+                ";
 $result = mysqli_query($conn, $getactivity);
 ?>
 <!DOCTYPE html>
@@ -55,7 +63,7 @@ $result = mysqli_query($conn, $getactivity);
                             $score = $numRows;
                         }
                     }
-                    echo "<div class='col-xxl-3 col-lg-4 col-md-6 mt-4 text-center ccc'>
+                    echo "<div class='col-xxl-3 col-lg-4 col-md-6 text-center ccc'>
                         <div class='quiz-card'>
                             <div class='quiz-card-image'>
                                 <img src='$image' alt='$Quiztitle'>
@@ -104,7 +112,6 @@ $result = mysqli_query($conn, $getactivity);
             ?>
         </div>
     </div>
-    
     <script src="javascripts/activity.js"></script>
 </body>
 </html>

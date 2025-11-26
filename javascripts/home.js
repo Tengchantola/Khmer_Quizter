@@ -103,10 +103,14 @@ $(document).ready(function () {
       `<i class="bi bi-person-circle"></i><span>By ${author}</span>`
     );
     $("#modalPlays").html(
-      `<i class="bi bi-play-circle"></i><span>${plays} plays</span>`
+      `<i class="bi bi-play-circle"></i><span>${plays} ${
+        plays <= 1 ? "Play" : "Plays"
+      }</span>`
     );
     $("#modalQuestions").html(
-      `<i class="bi bi-question-circle"></i><span>${questions} questions</span>`
+      `<i class="bi bi-question-circle"></i><span>${questions} ${
+        questions <= 1 ? "Question" : "Questions"
+      }</span>`
     );
     $("#modalQuizCode").text(quizCode);
     $("#modalImage").attr("src", image);

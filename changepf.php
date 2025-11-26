@@ -53,7 +53,10 @@ include_once 'nav.php';
             "Armin" => "https://i.postimg.cc/90b1ywnd/Armin.jpg",
             "Tanjiro" => "https://i.postimg.cc/Xv58QzP9/Tanjiro.jpg",
             "Nezuko" => "https://i.postimg.cc/2Ssdbx5f/Nezuko.jpg",
-            "Zenitsu" => "https://i.postimg.cc/m2qCJSCC/Zenitsu.jpg"
+            "Zenitsu" => "https://i.postimg.cc/m2qCJSCC/Zenitsu.jpg",
+            "Shinji Ikari" =>  "https://i.postimg.cc/tTsTL89w/Shinji-Ikari.jpg",
+            "Izuku-Midoriya"=>"https://i.postimg.cc/ht3RHvh2/Izuku-Midoriya.jpg",
+            "Ken-Kaneki"=>"https://i.postimg.cc/85L8Jb4Z/Ken-Kaneki.jpg"
         );
         foreach ($icon as $key => $value) {
             echo "<div class='col-xxl-2 col-lg-3 col-md-4 col-6 imageicon text-center mt-3'> 
@@ -73,7 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['agent_name'])) {
         $agentName = $_POST['agent_name'];
         $updateQuery = "UPDATE UserAccount SET Profile = '$agentName' WHERE UserID = '{$_SESSION['UserID']}'";
-
         if ($conn->query($updateQuery) === TRUE) {
             $_SESSION['Profile'] = $agentName;
             echo "<script>window.location.reload(); window.location.href = 'home.php';</script>";

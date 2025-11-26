@@ -1,0 +1,59 @@
+.boxes {
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  min-height: 16vh;
+  transition: 0.3s;
+}
+
+.boxes:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.usericon {
+  font-size: 30px;
+  padding: 10%;
+}
+
+.usericon i {
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.ahsor-success {
+  color: #5cdc46;
+}
+
+.ahsor-danger {
+  color: #bd0003;
+}
+
+.background-primary {
+  background: #eb3349;
+  background: -webkit-linear-gradient(to right, #f45c43, #eb3349);
+  background: linear-gradient(to right, #f45c43, #eb3349);
+}
+
+.background-secondary {
+  background: #4776e6;
+  background: -webkit-linear-gradient(to right, #8e54e9, #4776e6);
+  background: linear-gradient(to right, #8e54e9, #4776e6);
+}
+
+.background-success {
+  background: #7f00ff;
+  background: -webkit-linear-gradient(to right, #e100ff, #7f00ff);
+  background: linear-gradient(to right, #e100ff, #7f00ff);
+}
+
+.background-warning {
+  background: #f3904f;
+  background: -webkit-linear-gradient(to right, #3b4371, #f3904f);
+  background: linear-gradient(to right, #3b4371, #f3904f);
+}
