@@ -11,13 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     q.Image, 
     u.Username, 
     u.UserID, 
-    COUNT(ut.AttemptID) AS PlayCount, 
-    MAX(ut.Score) AS MaxScore, 
-    MAX(ut.CompletedAt) AS Date 
+    COUNT(q.Play) AS PlayCount,
+    MAX(ut.ScoreValue) AS MaxScore, 
+    MAX(ut.Date) AS Date 
     FROM Quiz q 
-    LEFT JOIN UserQuizAttempts ut ON q.QuizID = ut.QuizID 
+    LEFT JOIN Score ut ON q.QuizID = ut.QuizID 
     LEFT JOIN UserAccount u ON u.UserID = ut.UserID WHERE q.QuizID = '$QuizID' 
-    GROUP BY u.UserID, u.Username ORDER BY MaxScore DESC, PlayCount ASC;";
+    GROUP BY u.UserID, u.Username ORDER BY MaxScore DESC, PlayCount ASC";
     $result = mysqli_query($conn, $query);
     if ($result) {
         $row = mysqli_fetch_assoc($result); 
@@ -83,8 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                         <tr>
                                             <th scope="col" class="rank-col">Rank</th>
                                             <th scope="col" class="player-col">Player</th>
-                                            <th scope="col" class="score-col">Score</th>
                                             <th scope="col" class="attempts-col">Attempts</th>
+                                            <th scope="col" class="score-col">Score</th>
                                             <th scope="col" class="date-col">Last Attempt</th>
                                         </tr>
                                     </thead>
@@ -94,13 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                         mysqli_data_seek($result, 0);
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             if ($row['Username'] === null) continue;
-                                            
-                                            // Add special classes for top 3 players
                                             $rowClass = "";
                                             if ($rank == 1) $rowClass = "first-place";
                                             elseif ($rank == 2) $rowClass = "second-place";
                                             elseif ($rank == 3) $rowClass = "third-place";
-                                            
                                             $score = $row['MaxScore'] ?? 0;
                                             if (isset($numRows) && $score > $numRows) {
                                                 $score = $numRows;
@@ -125,15 +122,15 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                                                         </div>
                                                     </div>
                                                 </td>
+                                                 <td class="attempts-cell">
+                                                    <span class="attempts-count"><?php echo $row['PlayCount']; ?></span>
+                                                </td>
                                                 <td class="score-cell">
                                                     <div class="score-display">
                                                         <span class="score-value"><?php echo $score; ?></span>
                                                         <span class="score-divider">/</span>
                                                         <span class="score-total"><?php echo $numRows ?? '?'; ?></span>
                                                     </div>
-                                                </td>
-                                                <td class="attempts-cell">
-                                                    <span class="attempts-count"><?php echo $row['PlayCount']; ?></span>
                                                 </td>
                                                 <td class="date-cell">
                                                     <?php 
